@@ -147,7 +147,7 @@
 %Probability
 \DeclareDocumentCommand\P{ m g }{%
 	{%
-		\fun{p}{#1 \IfNoValueF {#2} {\middle| #2}}%
+		\fun{p}{#1 \IfNoValueF {#2} {\,\middle|\, #2}}%
 	}%
 }
 
