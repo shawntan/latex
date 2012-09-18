@@ -1,4 +1,3 @@
-
 \ProvidesClass{homework}[2012/04/30 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
@@ -49,16 +48,14 @@
 %%%%%%%%%
 
 \RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+%\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
 \newfontfamily\bodyfont[]{Helvetica Neue}
 \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
 \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
-
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
-
-
+%\setmathfont{XITS Math}
 %%%%%%%%%%
 % Header %
 %%%%%%%%%%
@@ -140,11 +137,13 @@
 %%%%%%%%%%%%%
 % Math mods %
 %%%%%%%%%%%%%
+\RequirePackage{amsmath}
 
 %Function
 \newcommand{\fun}[2]{\,#1\!\left(#2\right)}
 
 %Probability
+
 \DeclareDocumentCommand\P{ m g }{%
 	{%
 		\fun{p}{#1 \IfNoValueF {#2} {\,\middle|\, #2}}%
@@ -154,13 +153,19 @@
 %Conditional independence
 \newcommand{\CI}[3]{\left.\left. #1 \perp #2 \right. \:\middle|\:#3\right.}
 
+
+%%%%%%%%%%%%%%
+% Table mods %
+%%%%%%%%%%%%%%
+\RequirePackage{tabularx}
+\setlength{\tabcolsep}{.2em}
+
 %%%%%%%%%%%%%%%%
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=3cm,top=2cm,right=3cm,bottom=3cm,nohead,nofoot]{geometry}
+\RequirePackage[left=3cm,top=2cm,right=3cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
-\RequirePackage{amsmath}
 \RequirePackage{setspace}
 \RequirePackage{wrapfig}
 \onehalfspacing
