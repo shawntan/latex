@@ -1,12 +1,11 @@
-\ProvidesClass{homework}[2012/04/30 CV class]
+\ProvidesClass{presentation}[2012/04/30 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
-\DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{article}%
+  \PassOptionsToClass{\CurrentOption}{beamer}%
 }
 \ProcessOptions\relax
-\LoadClass{article}
+\LoadClass{beamer}
 
 
 %%%%%%%%%%
@@ -54,7 +53,8 @@
 \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
 \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+%\setsansfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+\setsansfont{Helvetica Neue Light}
 %\setmathfont{XITS Math}
 %%%%%%%%%%
 % Header %
@@ -63,47 +63,25 @@
 \RequirePackage{tikz}
 
 \newcommand{\rolefont}{%
-  \fontsize{14pt}{24pt}\selectfont%
+  \fontsize{12pt}{20pt}\selectfont%
   \thinfont%
   \color{white}%
 }
 
-\newcommand{\header}[3]{%
-  \begin{tikzpicture}[remember picture,overlay]
-   \node [rectangle, anchor=north, minimum width=\paperwidth, minimum 
-height=5cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
-      \fontsize{40pt}{72pt}\color{fillheader}%
-      {\bodyfont #1}{\thinfont  #2}
-    };
-    \node [anchor=north] at (name.south) {%
-      \fontsize{14pt}{24pt}\color{fillheader}%
-      \thinfont #3%
-    };
-  \end{tikzpicture}
-  \vspace{1.5cm}
-  \vspace{-2\parskip}
-}
 
 
 %%%%%%%%%%%%%
 % Structure %
 %%%%%%%%%%%%%
-\RequirePackage{parskip}
+%\RequirePackage{parskip}
 
-\pagestyle{empty}
+%\pagestyle{empty}
 
 
 %%%%%%%%%%%%%%%%%%%%
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
 
-\setlength{\tabcolsep}{0pt}
-\newenvironment{entrylist}{%
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
-}{%
-  \end{tabular*}
-}
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
   #1&\parbox[t]{11.8cm}{%
@@ -118,23 +96,6 @@ height=5cm] (box) at (current page.north){};
 % Side block %
 %%%%%%%%%%%%%%
 
-\RequirePackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1cm}
-\setlength{\TPVertModule}{1cm}
-\newenvironment{aside}{%
-  \let\oldsection\section
-  \renewcommand{\section}[1]{
-    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
-  }
-  \begin{textblock}{3.6}(1.5, 4.33)
-  \begin{flushright}
-  \obeycr
-}{%
-  \restorecr
-  \end{flushright}
-  \end{textblock}
-  \let\section\oldsection
-}
 %%%%%%%%%%%%%
 % Math mods %
 %%%%%%%%%%%%%
@@ -165,8 +126,3 @@ height=5cm] (box) at (current page.north){};
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=3cm,top=2cm,right=3cm,bottom=2.5cm,nohead,nofoot]{geometry}
-\RequirePackage{hyperref}
-\RequirePackage{setspace}
-\RequirePackage{wrapfig}
-\onehalfspacing
