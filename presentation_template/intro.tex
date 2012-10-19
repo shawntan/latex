@@ -36,7 +36,7 @@
 			\item Professor Emeritus at Stanford University
 			\item Author of ``The Art of Computer Programming"
 			\begin{itemize}
-				\item Volumes 1-4A... still going.
+				\item Volumes 1-4A... \\\visible<2->{still going.}
 			\end{itemize}
 		\end{itemize}
 	\end{column}
@@ -61,13 +61,40 @@ finished\footnote{\url{http://www.xent.com/FoRK-archive/feb98/0307.html}}
 \begin{frame}
 	\frametitle{Knuth's bank}
 ``Intelligence: Finding an error in a Knuth text.\\
-~~~Stupidity: Cashing that \$2.56 check you got." \\- a Slashdot signature\footnote{http://www.stgray.com/quotes/programmingquotes.html}
+\,\,\,\,Stupidity: Cashing that \$2.56 check you got." \\- a Slashdot 
+signature\footnote{http://www.stgray.com/quotes/programmingquotes.html}
 
 \begin{center}
 	\includegraphics[scale=0.3]{hexadollar.png}
 \end{center}
-
 \end{frame}
+
+\begin{frame}
+	\frametitle{\LaTeX - urghhh..}
+	\begin{center}
+		\huge
+		Verbose, too much like programming
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{Line noise}
+	\[ M[i,j] = \left\{ \begin{array}{l l} 0 & \quad \text{if } i=0 \text{ or } 
+j=0\\ M[i-1,j] & \quad \text{if } w_i > j\\ \max \left( M[i-1,j-w_i] + v_i, 
+M[i-1,j] \right)& \quad \text{if } w_i \leq j\\ \end{array} \right. \]
+\end{frame}
+\begin{frame}[fragile]{Line noise}
+	\begin{verbatim}
+	\[ M[i,j] = \left\{ \begin{array}{l l} 0 & \quad \text{if } i=0 \text{ or } 
+j=0\\
+		M[i-1,j] & \quad \text{if } w_i > j\\
+		\max \left( M[i-1,j-w_i] + v_i, M[i-1,j] \right)
+		& \quad \text{if } w_i \leq j\\
+	\end{array} \right. \]
+	\end{verbatim}%
+\end{frame}
+
+
 \begin{frame}[allowframebreaks]
 	\frametitle{\LaTeX - the (few) good parts}
 	\huge
@@ -82,33 +109,16 @@ finished\footnote{\url{http://www.xent.com/FoRK-archive/feb98/0307.html}}
 \[
 	\frac{1}{\displaystyle 1+  \frac{1}{\displaystyle 1+ \frac{1}{\displaystyle 1+ \frac{1}{\pi}}}}
 \]
-\framebreak
-\begin{center}
-	Bibliography
-\end{center}
 \end{frame}
 \begin{frame}
-	\frametitle{\LaTeX - urghhh..}
-	\begin{center}
-		\huge
-		Verbose, too much like programming
-	\end{center}
+Typesetting big projects...
 \end{frame}
 
-\begin{frame}[fragile]
-	\frametitle{Line noise}
 
-	\begin{verbatim}
-	\[ M[i,j] = 
-		\left\{ \begin{array}{l l} 0 & \quad \text{if } i=0 
-		\text{ or } j=0\\
-		M[i-1,j] & \quad \text{if } w_i > j\\
-		\max \left( M[i-1,j-w_i] + v_i, M[i-1,j] \right)
-		& \quad \text{if } w_i \leq j\\
-\end{array} \right. \]
 
-	\end{verbatim}
-	\[ M[i,j] = \left\{ \begin{array}{l l} 0 & \quad \text{if } i=0 \text{ or } j=0\\ M[i-1,j] & \quad \text{if } w_i > j\\ \max \left( M[i-1,j-w_i] + v_i, M[i-1,j] \right)& \quad \text{if } w_i \leq j\\ \end{array} \right. \]
+\begin{frame}
+\url{http://github.com/shawntan/latex}\\
+~\\
+\huge Thanks!
 \end{frame}
-
 \end{document}
