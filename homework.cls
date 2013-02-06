@@ -50,11 +50,12 @@
 \RequirePackage[quiet]{fontspec}
 %\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
-\newfontfamily\bodyfont[]{Helvetica Neue}
-\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
-\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
+\newfontfamily\bodyfont[]{HelveticaNeue-Light}
+\newfontfamily\thinfont[]{HelveticaNeue-UltraLight}
+\newfontfamily\headingfont[]{HelveticaNeue-BoldCond}
+
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+\setmainfont[Mapping=tex-text, Color=textcolor]{HelveticaNeue-Light}
 %\setmathfont{XITS Math}
 %%%%%%%%%%
 % Header %
@@ -84,6 +85,24 @@ height=5cm] (box) at (current page.north){};
   \vspace{1.5cm}
   \vspace{-2\parskip}
 }
+
+\newcommand{\bigheaders}[3]{%
+  \begin{tikzpicture}[remember picture,overlay]
+   \node [rectangle, anchor=north, minimum width=\paperwidth, minimum 
+height=5cm] (box) at (current page.north){};
+    \node [anchor=center] (name) at (box) {%
+      \fontsize{40pt}{72pt}\color{fillheader}%
+	  {\bodyfont #1}
+    };
+    \node [anchor=north] at (name.south) {%
+	  \fontsize{35pt}{64pt}\color{fillheader}%
+      \thinfont #2%
+    };
+  \end{tikzpicture}
+  \vspace{1.5cm}
+  \vspace{-2\parskip}
+}
+
 
 
 %%%%%%%%%%%%%
@@ -165,7 +184,7 @@ height=5cm] (box) at (current page.north){};
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=3cm,top=2cm,right=3cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=4cm,top=4cm,right=4cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
 \RequirePackage{setspace}
 \RequirePackage{wrapfig}
